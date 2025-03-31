@@ -1,0 +1,38 @@
+$date
+	Mon Mar 31 18:25:46 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_ParityCheck $end
+$var wire 1 ! error $end
+$var reg 8 " data [7:0] $end
+$var reg 1 # parity $end
+$scope module uut $end
+$var wire 8 $ data_in [7:0] $end
+$var wire 1 ! error $end
+$var wire 1 # parity_bit $end
+$var wire 1 % computed_parity $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0%
+b10101010 $
+0#
+b10101010 "
+0!
+$end
+#10
+1!
+1%
+b10101011 "
+b10101011 $
+#20

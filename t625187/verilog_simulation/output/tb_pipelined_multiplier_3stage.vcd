@@ -1,0 +1,141 @@
+$date
+	Mon Mar 31 16:34:47 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_pipelined_multiplier_3stage $end
+$var wire 16 ! product [15:0] $end
+$var reg 8 " a [7:0] $end
+$var reg 8 # b [7:0] $end
+$var reg 1 $ clk $end
+$var reg 1 % reset $end
+$scope module uut $end
+$var wire 8 & a [7:0] $end
+$var wire 8 ' b [7:0] $end
+$var wire 1 $ clk $end
+$var wire 1 % reset $end
+$var reg 8 ( a_reg1 [7:0] $end
+$var reg 8 ) b_reg1 [7:0] $end
+$var reg 16 * final_result [15:0] $end
+$var reg 16 + partial_result [15:0] $end
+$var reg 16 , product [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 ,
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+1%
+0$
+b0 #
+b0 "
+b0 !
+$end
+#5000
+1$
+#10000
+0$
+0%
+#15000
+1$
+#20000
+0$
+b101 #
+b101 '
+b1010 "
+b1010 &
+#25000
+b101 )
+b1010 (
+1$
+#30000
+0$
+b111 #
+b111 '
+b11 "
+b11 &
+#35000
+b110010 +
+b111 )
+b11 (
+1$
+#40000
+0$
+b1111 #
+b1111 '
+b1111 "
+b1111 &
+#45000
+b110010 *
+b10101 +
+b1111 )
+b1111 (
+1$
+#50000
+0$
+b1100 #
+b1100 '
+b11001 "
+b11001 &
+#55000
+b110010 !
+b110010 ,
+b10101 *
+b11100001 +
+b1100 )
+b11001 (
+1$
+#60000
+0$
+b10100 #
+b10100 '
+b1000 "
+b1000 &
+#65000
+b10101 !
+b10101 ,
+b11100001 *
+b100101100 +
+b10100 )
+b1000 (
+1$
+#70000
+0$
+#75000
+b11100001 !
+b11100001 ,
+b100101100 *
+b10100000 +
+1$
+#80000
+0$
+#85000
+b100101100 !
+b100101100 ,
+b10100000 *
+1$
+#90000
+0$
+#95000
+b10100000 !
+b10100000 ,
+1$
+#100000
+0$
+#105000
+1$
+#110000
+0$

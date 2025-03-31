@@ -1,0 +1,64 @@
+$date
+	Mon Mar 31 12:03:35 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_ArithmeticUnit $end
+$var wire 16 ! result [15:0] $end
+$var parameter 32 " WIDTH $end
+$var reg 8 # a [7:0] $end
+$var reg 8 $ b [7:0] $end
+$var reg 2 % op [1:0] $end
+$scope module uut $end
+$var wire 8 & a [7:0] $end
+$var wire 8 ' b [7:0] $end
+$var wire 2 ( op [1:0] $end
+$var parameter 32 ) WIDTH $end
+$var reg 16 * result [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 )
+b1000 "
+$end
+#0
+$dumpvars
+b10000 *
+b0 (
+b1 '
+b1111 &
+b0 %
+b1 $
+b1111 #
+b10000 !
+$end
+#10
+b1110 !
+b1110 *
+b1 %
+b1 (
+#20
+b110 !
+b110 *
+b10 %
+b10 (
+b10 $
+b10 '
+b11 #
+b11 &
+#30
+b0 !
+b0 *
+b11 %
+b11 (
+b1 $
+b1 '
+b1111 #
+b1111 &
+#40
