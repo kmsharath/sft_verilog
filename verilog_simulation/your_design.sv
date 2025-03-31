@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module ALU #(parameter WIDTH = 8) (
-    input  [WIDTH-1:0] A, B,
-    input  [2:0] ALU_Sel,
-    output reg [WIDTH-1:0] ALU_Out,
-    output reg Zero
+    input  logic [WIDTH-1:0] A, B,
+    input  logic [2:0] ALU_Sel,
+    output logic [WIDTH-1:0] ALU_Out,
+    output logic Zero
 );
 
-    always @(*) begin
+always begin
         case (ALU_Sel)
             3'b000: ALU_Out = A + B;       // Addition
             3'b001: ALU_Out = A - B;       // Subtraction
@@ -21,8 +21,6 @@ module ALU #(parameter WIDTH = 8) (
         endcase
     end
     
-    always @(*) begin
-        Zero = (ALU_Out == 0) ? 1 : 0; // Zero flag
-    end
+    assign Zero = (ALU_Out == 0) ? 1 : 0; // Zero flag
     
 endmodule

@@ -1,50 +1,41 @@
-
-module vga_controller_tb;
-
-
-    reg clk;
-
-    wire h_sync;
-
-    wire v_sync;
-
-    wire [7:0] red, green, blue;
-
-
-    initial begin
-
-        clk <= 0;
-
-        forever #10 clk <= ~clk; // 100 MHz clock frequency (50ns period)
-
-    end
-
-
-    vga_controller UUT (
-
-        .clk(clk),
-
-        .h_sync(h_sync),
-
-        .v_sync(v_sync),
-
-        .red(red),
-
-        .green(green),
-
-        .blue(blue)
-
+`timescale 1ns / 1ps
+module ALU_tb;
+    parameter WIDTH = 8;
+    
+    reg [WIDTH-1:0] A, B;
+    reg [2:0] ALU_Sel;
+    wire [WIDTH-1:0] ALU_Out;
+    wire Zero;
+    
+    ALU #(WIDTH) uut (
+        .A(A),
+        .B(B),
+        .ALU_Sel(ALU_Sel),
+        .ALU_Out(ALU_Out),
+        .Zero(Zero)
     );
-
-
+    
     initial begin
-
-        $monitor ("clk=%b, h_sync=%b, v_sync=%b, red=%08b, green=%08b, blue=%08b",
-
-            clk, h_sync, v_sync, red, green, blue);
-
-        #1000000 $finish;
-
+        A = 8'h05; B = 8'h03; ALU_Sel = 3'b000; #10;
+        ALU_Sel = 3'b001; #10;
+        ALU_Sel = 3'b010; #10;
+        ALU_Sel = 3'b011; #10;
+        ALU_Sel = 3'b100; #10;
+        ALU_Sel = 3'b101; #10;
+        ALU_Sel = 3'b110; #10;
+        ALU_Sel = 3'b111; #10;
+        A = 8'h02; B = 8'h04; ALU_Sel = 3'b111; #10;
+        A = 8'h00; B = 8'h00; ALU_Sel = 3'b000; #10;
+        $finish;
     end
-
+    
+  /*  initial begin
+        $monitor("Time=%0t | A=%h, B=%h, ALU_Sel=%b -> ALU_Out=%h, Zero=%b", 
+                 $time, A, B, ALU_Sel, ALU_Out, Zero);
+    end*/
+    
+    initial begin
+        $dumpfile("output/ALU_tb.vcd");
+        $dumpvars(0, ALU_tb);
+    end
 endmodule
