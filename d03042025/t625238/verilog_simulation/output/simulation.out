@@ -1,0 +1,204 @@
+#! /usr/local/bin/vvp
+:ivl_version "13.0 (devel)" "(s20221226-533-g676b36e45)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/lib/ivl/v2009.vpi";
+S_0x20b34d70 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x20b34f20 .scope module, "SensorDataManager" "SensorDataManager" 3 1;
+ .timescale 0 0;
+v0x20b5b220_0 .var/2s "num_sensors", 31 0;
+v0x20b5b320_0 .var/darray "sensor_data", 32;
+S_0x20b350b0 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 3 25, 3 25 0, S_0x20b34f20;
+ .timescale 0 0;
+v0x20b35290_0 .var/2s "i", 31 0;
+S_0x20b5a670 .scope begin, "$ivl_foreach0" "$ivl_foreach0" 3 10, 3 10 0, S_0x20b34f20;
+ .timescale 0 0;
+v0x20b5a870_0 .var/2s "i", 31 0;
+S_0x20b5a950 .scope begin, "$ivl_foreach1" "$ivl_foreach1" 3 16, 3 16 0, S_0x20b34f20;
+ .timescale 0 0;
+v0x20b5ab30_0 .var/2s "i", 31 0;
+S_0x20b5ac10 .scope begin, "$ivl_foreach2" "$ivl_foreach2" 3 31, 3 31 0, S_0x20b34f20;
+ .timescale 0 0;
+v0x20b5adf0_0 .var/2s "i", 31 0;
+S_0x20b5aef0 .scope begin, "$ivl_foreach3" "$ivl_foreach3" 3 41, 3 41 0, S_0x20b34f20;
+ .timescale 0 0;
+v0x20b5b120_0 .var/2s "i", 31 0;
+    .scope S_0x20b34f20;
+T_0 ;
+    %pushi/vec4 5, 0, 32;
+    %store/vec4 v0x20b5b220_0, 0, 32;
+    %ix/getv/s 4, v0x20b5b220_0;
+    %new/darray 4, "sb32";
+    %store/obj v0x20b5b320_0; /src/your_design.sv:7: sensor_data = new ...
+    %fork t_1, S_0x20b5a670;
+    %jmp t_0;
+    .scope S_0x20b5a670;
+t_1 ;
+    %vpi_func 3 10 "$low" 32, v0x20b5b320_0 {0 0 0};
+    %store/vec4 v0x20b5a870_0, 0, 32;
+T_0.0 ; Top of for-loop
+    %load/vec4 v0x20b5a870_0;
+    %vpi_func 3 10 "$high" 32, v0x20b5b320_0 {0 0 0};
+    %cmp/s;
+    %flag_or 5, 4;
+	  %jmp/0xz T_0.1, 5;
+    %load/vec4 v0x20b5a870_0;
+    %muli 10, 0, 32;
+    %ix/getv/s 3, v0x20b5a870_0;
+    %store/dar/vec4 v0x20b5b320_0;
+T_0.2 ; for-loop step statement
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x20b5a870_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0x20b5a870_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ; for-loop exit label
+    %end;
+    .scope S_0x20b34f20;
+t_0 %join;
+    %vpi_call/w 3 15 "$display", "Initial Sensor Data:" {0 0 0};
+    %fork t_3, S_0x20b5a950;
+    %jmp t_2;
+    .scope S_0x20b5a950;
+t_3 ;
+    %vpi_func 3 16 "$low" 32, v0x20b5b320_0 {0 0 0};
+    %store/vec4 v0x20b5ab30_0, 0, 32;
+T_0.3 ; Top of for-loop
+    %load/vec4 v0x20b5ab30_0;
+    %vpi_func 3 16 "$high" 32, v0x20b5b320_0 {0 0 0};
+    %cmp/s;
+    %flag_or 5, 4;
+	  %jmp/0xz T_0.4, 5;
+    %ix/getv/s 3, v0x20b5ab30_0;
+    %load/dar/vec4 v0x20b5b320_0;
+    %cast2;
+    %vpi_call/w 3 17 "$display", "Sensor[%0d] = %0d", v0x20b5ab30_0, S<0,vec4,s32> {1 0 0};
+T_0.5 ; for-loop step statement
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x20b5ab30_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0x20b5ab30_0, 0, 32;
+    %jmp T_0.3;
+T_0.4 ; for-loop exit label
+    %end;
+    .scope S_0x20b34f20;
+t_2 %join;
+    %pushi/vec4 8, 0, 32;
+    %store/vec4 v0x20b5b220_0, 0, 32;
+    %ix/getv/s 4, v0x20b5b220_0;
+    %new/darray 4, "sb32";
+    %load/obj v0x20b5b320_0;
+    %scopy;
+    %store/obj v0x20b5b320_0; /src/your_design.sv:22: sensor_data = new ...
+    %fork t_5, S_0x20b350b0;
+    %jmp t_4;
+    .scope S_0x20b350b0;
+t_5 ;
+    %pushi/vec4 5, 0, 32;
+    %store/vec4 v0x20b35290_0, 0, 32;
+T_0.6 ; Top of for-loop
+    %load/vec4 v0x20b35290_0;
+    %load/vec4 v0x20b5b220_0;
+    %cmp/s;
+	  %jmp/0xz T_0.7, 5;
+    %load/vec4 v0x20b35290_0;
+    %muli 10, 0, 32;
+    %ix/getv/s 3, v0x20b35290_0;
+    %store/dar/vec4 v0x20b5b320_0;
+T_0.8 ; for-loop step statement
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x20b35290_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0x20b35290_0, 0, 32;
+    %jmp T_0.6;
+T_0.7 ; for-loop exit label
+    %end;
+    .scope S_0x20b34f20;
+t_4 %join;
+    %vpi_call/w 3 30 "$display", "Updated Sensor Data:" {0 0 0};
+    %fork t_7, S_0x20b5ac10;
+    %jmp t_6;
+    .scope S_0x20b5ac10;
+t_7 ;
+    %vpi_func 3 31 "$low" 32, v0x20b5b320_0 {0 0 0};
+    %store/vec4 v0x20b5adf0_0, 0, 32;
+T_0.9 ; Top of for-loop
+    %load/vec4 v0x20b5adf0_0;
+    %vpi_func 3 31 "$high" 32, v0x20b5b320_0 {0 0 0};
+    %cmp/s;
+    %flag_or 5, 4;
+	  %jmp/0xz T_0.10, 5;
+    %ix/getv/s 3, v0x20b5adf0_0;
+    %load/dar/vec4 v0x20b5b320_0;
+    %cast2;
+    %vpi_call/w 3 32 "$display", "Sensor[%0d] = %0d", v0x20b5adf0_0, S<0,vec4,s32> {1 0 0};
+T_0.11 ; for-loop step statement
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x20b5adf0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0x20b5adf0_0, 0, 32;
+    %jmp T_0.9;
+T_0.10 ; for-loop exit label
+    %end;
+    .scope S_0x20b34f20;
+t_6 %join;
+    %pushi/vec4 3, 0, 32;
+    %store/vec4 v0x20b5b220_0, 0, 32;
+    %ix/getv/s 4, v0x20b5b220_0;
+    %new/darray 4, "sb32";
+    %load/obj v0x20b5b320_0;
+    %scopy;
+    %store/obj v0x20b5b320_0; /src/your_design.sv:37: sensor_data = new ...
+    %vpi_call/w 3 40 "$display", "Truncated Sensor Data:" {0 0 0};
+    %fork t_9, S_0x20b5aef0;
+    %jmp t_8;
+    .scope S_0x20b5aef0;
+t_9 ;
+    %vpi_func 3 41 "$low" 32, v0x20b5b320_0 {0 0 0};
+    %store/vec4 v0x20b5b120_0, 0, 32;
+T_0.12 ; Top of for-loop
+    %load/vec4 v0x20b5b120_0;
+    %vpi_func 3 41 "$high" 32, v0x20b5b320_0 {0 0 0};
+    %cmp/s;
+    %flag_or 5, 4;
+	  %jmp/0xz T_0.13, 5;
+    %ix/getv/s 3, v0x20b5b120_0;
+    %load/dar/vec4 v0x20b5b320_0;
+    %cast2;
+    %vpi_call/w 3 42 "$display", "Sensor[%0d] = %0d", v0x20b5b120_0, S<0,vec4,s32> {1 0 0};
+T_0.14 ; for-loop step statement
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x20b5b120_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0x20b5b120_0, 0, 32;
+    %jmp T_0.12;
+T_0.13 ; for-loop exit label
+    %end;
+    .scope S_0x20b34f20;
+t_8 %join;
+    %vpi_call/w 3 46 "$dumpfile", "output/sensor_data.vcd" {0 0 0};
+    %vpi_call/w 3 47 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x20b34f20 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/src/your_design.sv";
